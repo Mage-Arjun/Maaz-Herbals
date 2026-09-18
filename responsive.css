@@ -1,0 +1,153 @@
+/* ================================================================
+   MAAZ HERBALS — Responsive System
+   Fluid behaviour · Tablet · Mobile · Small phone · Micro
+   Loaded last so it safely overrides component defaults.
+   ================================================================ */
+
+/* 1. Global fluid defaults --------------------------------- */
+img { max-width: 100%; height: auto; }
+button, input, select, textarea { max-width: 100%; }
+html, body { overflow-x: hidden; }
+a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button { touch-action: manipulation; }
+
+/* 2. Small desktop / large tablet (801–1100px) ------------- */
+@media (min-width: 801px) and (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+  .product-visual { height: 270px; }
+  .hero { grid-template-columns: 1fr .9fr; }
+  .hero-copy { padding-left: clamp(28px, 4vw, 56px); }
+  .feature-image { min-height: 460px; }
+  .page-hero { padding: 130px 6vw 60px; }
+  .page-hero h1, .story-page h1 { font-size: 54px; }
+  footer { grid-template-columns: 1fr 1fr; }
+  .foot-brand { grid-column: 1 / -1; }
+}
+
+/* 3. Portrait tablets & small screens (≤800px) ------------- */
+@media (max-width: 800px) {
+  /* Navigation */
+  .nav {
+    height: 64px;
+    padding: 0 24px;
+  }
+  .nav.scrolled { height: 58px; }
+  
+  /* Remove old .nav nav overrides so it inherits the side-drawer style */
+
+  /* Hero */
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-copy { padding: 100px 24px 55px; max-width: 100%; }
+  .hero-number { display: none; }
+  .hero-art { height: 54vw; min-height: 280px; }
+
+  /* Trust */
+  .trust { grid-template-columns: repeat(2, 1fr); }
+  .trust div:nth-child(2) { border-right: 0; }
+  .trust div:nth-child(3) { border-top: 1px solid rgba(196,164,107,.18); }
+  .trust div:nth-child(4) { border-top: 1px solid rgba(196,164,107,.18); border-right: 0; }
+
+  /* Products */
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  /* Feature */
+  .feature { grid-template-columns: 1fr; }
+  .feature-image { min-height: 320px; }
+  .feature-copy { padding: 56px 24px; }
+
+  /* Categories */
+  .categories { grid-template-columns: 1fr; }
+  .category { height: 300px; }
+
+  /* Story */
+  .story { grid-template-columns: 1fr; gap: 30px; }
+  .story > div:last-of-type { padding-top: 0; }
+  .story-leaf { display: none; }
+
+  /* Filters */
+  .filters { flex-wrap: wrap; }
+  .filters input { flex-basis: 100%; }
+  .filters select { flex: 1; }
+
+  /* Search */
+  .search-results { grid-template-columns: repeat(2, 1fr); }
+
+  /* Footer */
+  footer { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .foot-brand { grid-column: 1 / -1; }
+  .foot-mark { display: none; }
+
+  /* Page layouts */
+  .page-hero { padding: 120px 24px 54px; }
+  .product-page-grid, .story-page { grid-template-columns: 1fr !important; gap: 32px; }
+  .collection-banner { min-height: 310px; padding: 30px; }
+  .collection-banner h2 { font-size: 42px; }
+}
+
+/* 4. Phones (≤640px) --------------------------------------- */
+@media (max-width: 640px) {
+  .product-visual { height: 230px; }
+  .card h3 { font-size: 16px; }
+  .related h2 { font-size: 38px; }
+  .page-copy h1, .detail-copy h2 { font-size: 38px; }
+  .section-head h2, .feature h2 { font-size: 40px; }
+  .newsletter h2 { font-size: 44px; }
+  .search-results { grid-template-columns: 1fr; }
+  .story-values { grid-template-columns: 1fr !important; }
+
+  /* iOS: 16px prevents Safari auto-zoom on focus */
+  .newsletter input,
+  .filters input,
+  .filters select { font-size: 16px; }
+
+  /* Newsletter stacks vertically */
+  .newsletter form { flex-direction: column; box-shadow: none; }
+  .newsletter input { border-right: 1px solid rgba(196,164,107,.45); border-bottom: 0; }
+  .newsletter .button { width: 100%; }
+
+  .product-page .button { width: 100%; margin: 4px 0; }
+  .page-image { min-height: 320px !important; padding: 24px !important; }
+  .story-page { padding: 100px 24px 60px !important; }
+}
+
+/* 5. Small phones (≤480px) --------------------------------- */
+@media (max-width: 480px) {
+  :root { --pad-h: 18px; }
+
+  .nav { height: 58px; }
+  .nav.scrolled { height: 54px; }
+  .brand { font-size: 17px; }
+
+  .hero-art { height: 68vw; }
+  .hero-copy { padding: 90px 18px 48px; }
+
+  .filters { flex-direction: column; align-items: stretch; }
+  .filters input, .filters select { width: 100%; }
+
+  .category { height: 270px; padding: 26px; }
+  .category span { font-size: 28px; }
+
+  footer { grid-template-columns: 1fr; gap: 28px; }
+  .foot-bottom { flex-direction: column; text-align: center; gap: 8px; }
+
+  .page-hero { padding: 100px 18px 44px; }
+  .page-hero h1, .story-page h1 { font-size: 38px; }
+
+  .collection-banner { min-height: 270px; padding: 24px; }
+  .collection-banner h2 { font-size: 34px; }
+  .collection-banner::after { font-size: 240px; top: -60px; right: -44px; }
+}
+
+/* 6. Micro screens (≤360px) -------------------------------- */
+@media (max-width: 360px) {
+  .product-grid { gap: 10px; }
+  .product-visual { height: 200px; }
+  .card h3 { font-size: 15px; }
+  .trust { grid-template-columns: 1fr; }
+  .trust div { border-right: 0; border-bottom: 1px solid rgba(196,164,107,.18); padding: 10px 0; }
+  .trust div:last-child { border-bottom: 0; }
+  .category { height: 250px; padding: 22px; }
+  .price small { display: block; margin: 3px 0 0; }
+  .nav-actions { gap: 0; }
+}

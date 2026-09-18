@@ -1,38 +1,282 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MAAZ Herbals — nature's rituals, reimagined." />
-  <title>MAAZ Herbals — Botanical rituals</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MAAZ Herbals — nature's rituals, reimagined. Botanical personal care for everyday wellness.">
+  <meta name="theme-color" content="#0e2016">
+  <title>MAAZ Herbals — Botanical Rituals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="page.css" />
-  <link rel="stylesheet" href="campaign.css" />
-  <link rel="stylesheet" href="premium.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="page.css">
+  <link rel="stylesheet" href="premium.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
-  <div class="loader" id="loader"><img class="loader-seal" src="assets/maaz-seal.svg" alt="MAAZ Herbals seal"><div class="loader-name">MAAZ Herbals</div><div class="loader-line"></div><p>Preparing your botanical ritual...</p></div>
-  <div class="toast" id="toast" role="status"></div>
-  <section class="product-detail" id="detail" aria-hidden="true"><button class="close" data-close="detail">×</button><div id="detailContent"></div></section>
-  <div class="search-panel" id="searchPanel" aria-hidden="true"><button class="close" data-close="searchPanel">×</button><p class="eyebrow">Find your ritual</p><input id="searchInput" placeholder="Search hair oil, powder, skin care..." aria-label="Search products"><div class="search-results" id="searchResults"></div></div>
-  <aside class="cart" id="cart" aria-label="Shopping bag"><button class="close" data-close="cart">×</button><p class="eyebrow">Your botanical basket</p><h2>Shopping bag <span id="cartCount">(0)</span></h2><div id="cartItems"></div><div class="cart-bottom"><div><span>Subtotal</span><strong id="subtotal">₹0</strong></div><small>Shipping calculated at checkout</small><button class="button dark" id="checkout">Checkout</button><button class="text-button" data-close="cart">Continue shopping</button></div></aside>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <img class="loader-seal" src="assets/maaz-seal.svg" alt="MAAZ Herbals seal">
+    <div class="loader-name">MAAZ Herbals</div>
+    <div class="loader-line"></div>
+    <p>Preparing your botanical ritual...</p>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scrim -->
   <div class="scrim" id="scrim"></div>
-  <header class="nav" id="nav"><a class="brand" href="#home"><i class="seal" aria-hidden="true"></i>MAAZ <span>Herbals</span></a><nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#story">Our Story</a><a href="#collections">Collections</a></nav><div class="nav-actions"><button aria-label="Search" id="openSearch">⌕</button><button class="account" aria-label="Account">♙</button><button aria-label="Shopping bag" id="openCart">Bag <b id="navCount">0</b></button><button class="menu" id="mobileMenu" aria-label="Menu">☰</button></div></header>
+
+  <!-- Cart -->
+  <aside class="cart" id="cart" aria-label="Shopping bag">
+    <button class="close" data-close="cart" aria-label="Close cart">×</button>
+    <p class="eyebrow">Your botanical basket</p>
+    <h2>Shopping bag <span id="cartCount">(0)</span></h2>
+    <div id="cartItems"></div>
+    <div class="cart-bottom">
+      <div><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <small>Shipping calculated at checkout</small>
+      <button class="button dark" id="checkout">Checkout</button>
+      <button class="text-button" data-close="cart">Continue shopping</button>
+    </div>
+  </aside>
+
+  <!-- Search panel -->
+  <div class="search-panel" id="searchPanel" aria-hidden="true">
+    <button class="close" data-close="searchPanel" aria-label="Close search">×</button>
+    <p class="eyebrow">Find your ritual</p>
+    <input id="searchInput" placeholder="Search hair oil, shower gel, face wash..." aria-label="Search products">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html"><i class="seal" aria-hidden="true"></i>MAAZ <span>Herbals</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="story.html">Our Story</a>
+      <a href="collections.html">Collections</a>
+    </nav>
+    <div class="nav-actions">
+      <button aria-label="Search" id="openSearch">⌕</button>
+      <button aria-label="Shopping bag" id="openCart">Bag <b id="navCount">0</b></button>
+      <button class="menu" id="mobileMenu" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
   <main id="home">
-    <section class="hero"><div class="hero-copy reveal"><p class="eyebrow">N° 00 — Botanical house</p><h1>Nature’s rituals,<br><em>reimagined.</em></h1><p>Thoughtfully crafted herbal essentials inspired by the timeless wisdom of nature.</p><div class="button-row"><a class="button dark" href="#shop">Shop collection</a><a class="text-button" href="#story">Explore our story <span>→</span></a></div></div><div class="hero-art"><img src="assets/botanical-hero.png" alt="Amber herbal bottle and botanical jar surrounded by leaves"><span class="motif"></span><div class="stamp">• BOTANICAL<br>• EVERYDAY RITUALS</div></div></section>
-    <section class="trust section"><div><i>✦</i><strong>Herbal ingredients</strong><span>Inspired by nature’s botanicals</span></div><div><i>◌</i><strong>Thoughtfully crafted</strong><span>Made with care and intention</span></div><div><i>◒</i><strong>Daily rituals</strong><span>Simple wellness for every day</span></div><div><i>⌁</i><strong>Natural living</strong><span>Rooted in traditional knowledge</span></div></section>
-    <section class="section products-section" id="shop"><div class="section-head"><div class="reveal"><p class="eyebrow">N° 01 — The collection</p><h2>Explore our <em>essentials.</em></h2></div><a href="#shop-all" class="text-button">View all products →</a></div><div class="product-grid" id="featuredProducts"></div></section>
-    <section class="feature section"><div class="feature-image"><img src="assets/botanical-hero.png" alt="Herbal care ritual"><span class="image-note">A daily pause<br>for yourself</span></div><div class="feature-copy reveal"><p class="eyebrow">N° 02 — The daily ritual</p><h2>Herbal care,<br><em>rooted in tradition.</em></h2><p>A thoughtfully selected botanical essential designed to become part of your everyday routine.</p><ul><li>Botanical-inspired care</li><li>Designed for simple rituals</li><li>Made for everyday moments</li></ul><button class="button dark" data-add="1">Discover the ritual — ₹499</button></div></section>
-    <section class="section category-section" id="collections"><div class="section-head"><div class="reveal"><p class="eyebrow">N° 03 — Shop by ritual</p><h2>Find your <em>everyday.</em></h2></div></div><div class="categories"><a href="#shop-all" data-category="Hair Care" class="category hair reveal"><span>Hair Care</span><small>Herbal rituals for your hair</small><b>Explore →</b></a><a href="#shop-all" data-category="Skin Care" class="category skin reveal"><span>Skin Care</span><small>Gentle botanical care</small><b>Explore →</b></a><a href="#shop-all" data-category="Herbal Powders" class="category powder reveal"><span>Herbal Powders</span><small>Traditional essentials, simplified</small><b>Explore →</b></a></div></section>
-    <section class="story reveal" id="story"><span class="motif"></span><div class="story-leaf">❧</div><div class="watermark"><span>RITUAL</span></div><div class="reveal"><p class="eyebrow">N° 04 — Our philosophy</p><h2>Rooted in nature.<br>Made for <em>everyday rituals.</em></h2></div><div class="reveal"><p>MAAZ Herbals brings together the timeless value of botanical ingredients and the simplicity of modern self-care.</p><p>Our collection is inspired by nature, traditional herbal practices, and the belief that everyday wellness can begin with small rituals.</p><blockquote class="pull">Small rituals, quietly kept, become the texture of a life.</blockquote><a class="text-button" href="#shop">Discover our story →</a></div></section>
-    <section class="benefits section"><span>Herbal-inspired products</span><span>Thoughtfully selected ingredients</span><span>Everyday personal care</span><span>Simple wellness rituals</span></section>
-    <section class="newsletter reveal"><span class="motif"></span><div class="watermark"><span>NATURE</span></div><p class="eyebrow">N° 05 — Stay close</p><h2>A little nature,<br><em>in your inbox.</em></h2><p>Receive product updates, botanical rituals, and exclusive offers.</p><form id="newsletterForm"><input type="email" id="email" placeholder="Your email address" required><button class="button dark">Subscribe</button></form><small id="formMessage"></small></section>
-    <section class="shop-all section" id="shop-all"><div class="watermark"><span>BOTANICAL</span></div><div class="section-head"><div class="reveal"><p class="eyebrow">N° 06 — All products</p><h2>Our botanical <em>collection.</em></h2></div><span id="productCount"></span></div><div class="filters"><input id="shopSearch" placeholder="Search products"><select id="categoryFilter"><option>All Products</option><option>Hair Care</option><option>Skin Care</option><option>Herbal Powders</option></select><select id="sortFilter"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="name">Name: A–Z</option></select></div><div class="product-grid" id="allProducts"></div></section>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <span class="hero-number" aria-hidden="true">01</span>
+        <p class="eyebrow">N° 00 — Botanical house</p>
+        <h1>Nature's rituals,<br><em>reimagined.</em></h1>
+        <p>Thoughtfully crafted herbal essentials inspired by the timeless wisdom of nature.</p>
+        <div class="button-row">
+          <a class="button dark" href="shop.html">Shop collection</a>
+          <a class="text-button" href="story.html">Explore our story <span>→</span></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/botanical-hero.png" alt="Amber herbal bottle and botanical jar surrounded by leaves">
+        <span class="motif" aria-hidden="true"></span>
+        <div class="stamp" aria-hidden="true">• BOTANICAL<br>• EVERYDAY RITUALS</div>
+      </div>
+    </section>
+
+    <!-- Trust bar -->
+    <section class="trust" aria-label="Brand values">
+      <div>
+        <i aria-hidden="true">✦</i>
+        <div><strong>Herbal ingredients</strong><span>Inspired by nature's botanicals</span></div>
+      </div>
+      <div>
+        <i aria-hidden="true">◌</i>
+        <div><strong>Thoughtfully crafted</strong><span>Made with care and intention</span></div>
+      </div>
+      <div>
+        <i aria-hidden="true">◒</i>
+        <div><strong>Daily rituals</strong><span>Simple wellness for every day</span></div>
+      </div>
+      <div>
+        <i aria-hidden="true">⌁</i>
+        <div><strong>Natural living</strong><span>Rooted in traditional knowledge</span></div>
+      </div>
+    </section>
+
+    <!-- Featured products -->
+    <section class="section products-section" id="shop">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="eyebrow">N° 01 — The collection</p>
+          <h2>Explore our <em>essentials.</em></h2>
+        </div>
+        <a href="shop.html" class="text-button">View all products →</a>
+      </div>
+      <div class="product-grid" id="featuredProducts"></div>
+    </section>
+
+    <!-- Feature -->
+    <section class="feature">
+      <div class="feature-image">
+        <img src="assets/botanical-hero.png" alt="Herbal care ritual">
+        <span class="image-note">A daily pause<br>for yourself</span>
+      </div>
+      <div class="feature-copy reveal">
+        <p class="eyebrow">N° 02 — The daily ritual</p>
+        <h2>Herbal care,<br><em>rooted in tradition.</em></h2>
+        <p>A thoughtfully selected botanical essential designed to become part of your everyday routine.</p>
+        <ul>
+          <li>Botanical-inspired care</li>
+          <li>Designed for simple rituals</li>
+          <li>Made for everyday moments</li>
+        </ul>
+        <a class="button dark" href="shop.html">Discover the collection</a>
+      </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="section category-section" id="collections">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="eyebrow">N° 03 — Shop by ritual</p>
+          <h2>Find your <em>everyday.</em></h2>
+        </div>
+      </div>
+      <div class="categories">
+        <a href="collections.html" data-category="Hair Care" class="category hair reveal">
+          <span>Hair Care</span>
+          <small>Herbal rituals for your hair</small>
+          <b>Explore →</b>
+        </a>
+        <a href="collections.html" data-category="Skin Care" class="category skin reveal">
+          <span>Skin Care</span>
+          <small>Gentle botanical care</small>
+          <b>Explore →</b>
+        </a>
+        <a href="collections.html" data-category="Herbal Essentials" class="category powder reveal">
+          <span>Herbal Essentials</span>
+          <small>Traditional essentials, simplified</small>
+          <b>Explore →</b>
+        </a>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="story reveal" id="story">
+      <span class="motif" aria-hidden="true"></span>
+      <div class="story-leaf" aria-hidden="true">❧</div>
+      <div class="watermark"><span>RITUAL</span></div>
+      <div class="reveal">
+        <p class="eyebrow">N° 04 — Our philosophy</p>
+        <h2>Rooted in nature.<br>Made for <em>everyday rituals.</em></h2>
+      </div>
+      <div class="reveal">
+        <p>MAAZ Herbals brings together the timeless value of botanical ingredients and the simplicity of modern self-care.</p>
+        <p>Our collection is inspired by nature, traditional herbal practices, and the belief that everyday wellness can begin with small rituals.</p>
+        <blockquote class="pull">Small rituals, quietly kept, become the texture of a life.</blockquote>
+        <a class="text-button" href="story.html" style="margin-top:20px">Discover our story →</a>
+      </div>
+    </section>
+
+    <!-- Benefits marquee -->
+    <section class="benefits" aria-label="Brand highlights">
+      <div class="benefits-track">
+        <div class="benefits-item">Herbal-inspired products</div>
+        <div class="benefits-item">Thoughtfully selected ingredients</div>
+        <div class="benefits-item">Everyday personal care</div>
+        <div class="benefits-item">Simple wellness rituals</div>
+        <div class="benefits-item">Botanical personal care</div>
+        <div class="benefits-item">Nature's daily essentials</div>
+        <!-- Duplicate for seamless loop -->
+        <div class="benefits-item">Herbal-inspired products</div>
+        <div class="benefits-item">Thoughtfully selected ingredients</div>
+        <div class="benefits-item">Everyday personal care</div>
+        <div class="benefits-item">Simple wellness rituals</div>
+        <div class="benefits-item">Botanical personal care</div>
+        <div class="benefits-item">Nature's daily essentials</div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter reveal">
+      <span class="motif" aria-hidden="true"></span>
+      <div class="watermark"><span>NATURE</span></div>
+      <p class="eyebrow">N° 05 — Stay close</p>
+      <h2>A little nature,<br><em>in your inbox.</em></h2>
+      <p>Receive product updates, botanical rituals, and exclusive offers.</p>
+      <form id="newsletterForm" novalidate>
+        <input type="email" id="email" placeholder="Your email address" required aria-label="Email address">
+        <button class="button dark" type="submit">Subscribe</button>
+      </form>
+      <small id="formMessage"></small>
+    </section>
+
+    <!-- Shop all -->
+    <section class="shop-all section" id="shop-all">
+      <div class="watermark"><span>BOTANICAL</span></div>
+      <div class="section-head">
+        <div class="reveal">
+          <p class="eyebrow">N° 06 — All products</p>
+          <h2>Our botanical <em>collection.</em></h2>
+        </div>
+        <span id="productCount"></span>
+      </div>
+      <div class="filters">
+        <input id="shopSearch" placeholder="Search products" aria-label="Search products">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option>All Products</option>
+          <option>Hair Care</option>
+          <option>Skin Care</option>
+          <option>Herbal Essentials</option>
+        </select>
+        <select id="sortFilter" aria-label="Sort products">
+          <option value="featured">Featured</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="name">Name: A–Z</option>
+        </select>
+      </div>
+      <div class="product-grid" id="allProducts"></div>
+    </section>
+
   </main>
-  <footer><b class="foot-mark">MAAZ</b><a class="brand" href="#home"><i class="seal" aria-hidden="true"></i>MAAZ <span>Herbals</span></a><p>Nature’s rituals, reimagined.</p><div><a href="#shop">Shop</a><a href="#story">Our Story</a><a href="#collections">Collections</a><a href="#home">Contact</a></div><small>© 2026 MAAZ Herbals · Made for everyday rituals</small></footer>
+
+  <!-- Footer -->
+  <footer>
+    <b class="foot-mark" aria-hidden="true">MAAZ</b>
+    <div class="foot-brand">
+      <a class="brand" href="index.html"><i class="seal" aria-hidden="true"></i>MAAZ <span>Herbals</span></a>
+      <p>Nature's rituals, reimagined for everyday wellness.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="collections.html">Hair Care</a></li>
+        <li><a href="collections.html">Skin Care</a></li>
+        <li><a href="collections.html">Herbal Essentials</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Brand</h4>
+      <ul>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2026 MAAZ Herbals · Made for everyday rituals</small>
+      <small>Botanical personal care</small>
+    </div>
+  </footer>
+
   <script src="app.js"></script>
 </body>
 </html>

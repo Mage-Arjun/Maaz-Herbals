@@ -1,68 +1,135 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Collections — MAAZ Herbals</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="page.css">
-    <link rel="stylesheet" href="premium.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Collections — MAAZ Herbals. Explore our botanical care collections for everyday rituals.">
+  <meta name="theme-color" content="#0e2016">
+  <title>Collections — MAAZ Herbals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="page.css">
+  <link rel="stylesheet" href="premium.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
-
 <body>
-    <div class="loader" id="loader"><img class="loader-seal" src="assets/maaz-seal.svg" alt="MAAZ Herbals seal">
-        <div class="loader-name">MAAZ Herbals</div>
-        <div class="loader-line"></div>
-        <p>Preparing your botanical ritual...</p>
-    </div>
-    <header class="nav scrolled"><a class="brand" href="index.html"><i class="seal" aria-hidden="true"></i>MAAZ
-            <span>Herbals</span></a>
-        <nav><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="collections.html">Collections</a><a
-                href="story.html">Our Story</a></nav>
-    </header>
-    <main>
-        <section class="page-hero reveal">
-            <p class="eyebrow">N° 03 — Explore by ritual</p>
-            <h1>Collections for your<br><em>everyday.</em></h1>
-        </section>
-        <section class="section">
-            <div class="collection-banner reveal">
-                <div>
-                    <p class="eyebrow">Hair Care</p>
-                    <h2>Rooted hair rituals.</h2>
-                    <p>Discover our nature-inspired essential for an intentional hair-care moment.</p><a class="button"
-                        href="shop.html">Explore hair care</a>
-                </div>
-        </section>
-        <section class="section">
-            <div class="collection-banner reveal" style="background:#687756">
-                <div>
-                    <p class="eyebrow">Skin Care</p>
-                    <h2>Gentle botanical care.</h2>
-                    <p>Cleanse, refresh and care for your skin with quietly elevated daily essentials.</p><a
-                        class="button" href="shop.html">Explore skin care</a>
-                </div>
-        </section>
-        <section class="section">
-            <div class="collection-banner reveal" style="background:#8e795c">
-                <div>
-                    <p class="eyebrow">Herbal Essentials</p>
-                    <h2>Everyday glow rituals.</h2>
-                    <p>A nature-inspired finishing touch for the moments you make your own.</p><a class="button"
-                        href="shop.html">Explore essentials</a>
-                </div>
-        </section>
-    </main>
-    <footer><b class="foot-mark">MAAZ</b><a class="brand" href="index.html"><i class="seal" aria-hidden="true"></i>MAAZ
-            <span>Herbals</span></a>
-        <p>Nature’s rituals, reimagined.</p><small>© 2026 MAAZ Herbals</small>
-    </footer>
-</body>
 
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <img class="loader-seal" src="assets/maaz-seal.svg" alt="MAAZ Herbals seal">
+    <div class="loader-name">MAAZ Herbals</div>
+    <div class="loader-line"></div>
+    <p>Preparing your botanical ritual...</p>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scrim -->
+  <div class="scrim" id="scrim"></div>
+
+  <!-- Cart -->
+  <aside class="cart" id="cart" aria-label="Shopping bag">
+    <button class="close" data-close="cart" aria-label="Close cart">×</button>
+    <p class="eyebrow">Your botanical basket</p>
+    <h2>Shopping bag <span id="cartCount">(0)</span></h2>
+    <div id="cartItems"></div>
+    <div class="cart-bottom">
+      <div><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <small>Shipping calculated at checkout</small>
+      <button class="button dark" id="checkout">Checkout</button>
+      <button class="text-button" data-close="cart">Continue shopping</button>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="nav scrolled" id="nav">
+    <a class="brand" href="index.html"><i class="seal" aria-hidden="true"></i>MAAZ <span>Herbals</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="story.html">Our Story</a>
+      <a href="collections.html">Collections</a>
+    </nav>
+    <div class="nav-actions">
+      <button aria-label="Shopping bag" id="openCart">Bag <b id="navCount">0</b></button>
+      <button class="menu" id="mobileMenu" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page hero -->
+    <section class="page-hero reveal">
+      <p class="eyebrow">N° 03 — Explore by ritual</p>
+      <h1>Collections for your<br><em>everyday.</em></h1>
+      <p>Discover our curated categories of botanical personal care essentials.</p>
+    </section>
+
+    <!-- Collection banners -->
+    <section class="section" style="display:flex;flex-direction:column;gap:24px;">
+
+      <div class="collection-banner reveal">
+        <div>
+          <p class="eyebrow">Hair Care</p>
+          <h2>Rooted hair rituals.</h2>
+          <p>Discover our nature-inspired essential for an intentional hair-care moment.</p>
+          <a class="button" href="shop.html">Explore hair care</a>
+        </div>
+      </div>
+
+      <div class="collection-banner reveal" style="background:linear-gradient(155deg,#9b8464,#6c5a42)">
+        <div>
+          <p class="eyebrow">Skin Care</p>
+          <h2>Gentle botanical care.</h2>
+          <p>Cleanse, refresh and care for your skin with quietly elevated daily essentials.</p>
+          <a class="button" href="shop.html">Explore skin care</a>
+        </div>
+      </div>
+
+      <div class="collection-banner reveal" style="background:linear-gradient(155deg,#8e795c,#5d4e38)">
+        <div>
+          <p class="eyebrow">Herbal Essentials</p>
+          <h2>Everyday glow rituals.</h2>
+          <p>A nature-inspired finishing touch for the moments you make your own.</p>
+          <a class="button" href="shop.html">Explore essentials</a>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <b class="foot-mark" aria-hidden="true">MAAZ</b>
+    <div class="foot-brand">
+      <a class="brand" href="index.html"><i class="seal" aria-hidden="true"></i>MAAZ <span>Herbals</span></a>
+      <p>Nature's rituals, reimagined for everyday wellness.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="shop.html">All Products</a></li>
+        <li><a href="collections.html">Hair Care</a></li>
+        <li><a href="collections.html">Skin Care</a></li>
+        <li><a href="collections.html">Herbal Essentials</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Brand</h4>
+      <ul>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2026 MAAZ Herbals · Made for everyday rituals</small>
+      <small>Botanical personal care</small>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>

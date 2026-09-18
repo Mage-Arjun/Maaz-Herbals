@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="MAAZ Herbals seal">
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#b49a68" stroke-width="3"/>
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#b49a68" stroke-width="1.2"/>
+  <circle cx="100" cy="100" r="88" fill="#f7f3ea"/>
+  <circle cx="100" cy="100" r="64" fill="none" stroke="#b49a68" stroke-width="1"/>
+  <g fill="#b49a68">
+    <path d="M84 150 C 76 132 62 118 48 124 C 56 138 70 148 84 150"/>
+    <path d="M116 150 C 124 132 138 118 152 124 C 144 138 130 148 116 150"/>
+  </g>
+  <g fill="#183c32">
+    <circle cx="34" cy="100" r="1.7"/><circle cx="166" cy="100" r="1.7"/>
+    <circle cx="100" cy="34" r="1.7"/><circle cx="100" cy="166" r="1.7"/>
+  </g>
+  <text x="100" y="74" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="36" fill="#183c32">M</text>
+  <text x="100" y="98" text-anchor="middle" font-family="Verdana, Geneva, Arial, sans-serif" font-size="10.5" letter-spacing="3.2" fill="#183c32">MAAZ</text>
+  <text x="100" y="114" text-anchor="middle" font-family="Verdana, Geneva, Arial, sans-serif" font-size="7.5" letter-spacing="1.7" fill="#183c32">HERBALS</text>
+</svg>

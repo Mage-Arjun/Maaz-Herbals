@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" role="img" aria-label="Botanical frond">
+  <defs>
+    <path id="leaf" d="M0 0 C 20 -36 40 -26 44 -2 C 30 22 12 14 0 0" fill="none" stroke="#b49a68" stroke-width="2.4" stroke-linecap="round"/>
+  </defs>
+  <path d="M210 296 C 205 252 213 206 207 158 C 210 114 202 74 210 42" fill="none" stroke="#b49a68" stroke-width="3.2" stroke-linecap="round"/>
+  <use href="#leaf" transform="translate(211 258) rotate(-52)"/>
+  <use href="#leaf" transform="translate(209 222) rotate(50)"/>
+  <use href="#leaf" transform="translate(210 188) rotate(-44)"/>
+  <use href="#leaf" transform="translate(208 152) rotate(42)"/>
+  <use href="#leaf" transform="translate(210 118) rotate(-36)"/>
+  <use href="#leaf" transform="translate(207 86) rotate(34)"/>
+  <use href="#leaf" transform="translate(210 60) rotate(-26) scale(.78)"/>
+  <g fill="#b49a68">
+    <circle cx="168" cy="282" r="2.6"/><circle cx="178" cy="274" r="2.6"/><circle cx="160" cy="274" r="2.6"/><circle cx="173" cy="266" r="2.6"/>
+    <circle cx="252" cy="282" r="2.6"/><circle cx="262" cy="274" r="2.6"/><circle cx="244" cy="274" r="2.6"/><circle cx="255" cy="266" r="2.6"/>
+  </g>
+</svg>
